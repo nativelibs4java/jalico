@@ -1,8 +1,12 @@
+[![Build Status](https://travis-ci.org/ochafik/jalico.svg?branch=master)](https://travis-ci.org/ochafik/jalico)
+
 # jalico
 
-(OLD ABANDONWARE FROM 2008, SPAWNED BACK FROM THE DEAD)
+Listenable Collections for Java!
 
-Automatically exported from code.google.com/p/jalico
+This was freshly-split from `ochafik-util` package in [nativelibs4java/JNAerator](http://github.com/nativelibs4java/JNAerator), and merged with code.google.com/p/jalico project from 2008.
+
+I need help to add tests, since I'm not really using this project anymore (it's still used at the fringe in JNAerator).
 
 # Former doc
 
