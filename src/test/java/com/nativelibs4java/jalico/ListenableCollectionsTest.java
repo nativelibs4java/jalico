@@ -24,7 +24,7 @@ import org.mockito.runners.MockitoJUnitRunner;
 public class ListenableCollectionsTest {
     @Mock CollectionListener<Integer> mockedListener;
   
-    ListenableList<Integer> list = ListenableCollections.listenableList(new ArrayList<Integer>());
+    private ListenableList<Integer> list;
     
     @Before
     public void setUp() {
