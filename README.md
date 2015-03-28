@@ -6,7 +6,7 @@ Listenable Collections for Java!
 
 This was freshly-split from `ochafik-util` package in [nativelibs4java/JNAerator](http://github.com/nativelibs4java/JNAerator), and merged with code.google.com/p/jalico project from 2008.
 
-I need help to add tests, since I'm not really using this project anymore (it's still used at the fringe in JNAerator).
+I need help to add tests ([here's a sample](./src/test/java/com/nativelibs4java/jalico/ListenableCollectionsTest.java)), since I'm not really using this project anymore (it's still used at the fringe in JNAerator).
 
 ```
   <repositories>
