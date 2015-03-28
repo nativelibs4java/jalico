@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/ochafik/jalico.svg?branch=master)](https://travis-ci.org/ochafik/jalico)
+[![Build Status](https://travis-ci.org/nativelibs4java/jalico.svg?branch=master)](https://travis-ci.org/nativelibs4java/jalico)
 
 # jalico
 
