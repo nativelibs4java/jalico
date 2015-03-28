@@ -8,6 +8,24 @@ This was freshly-split from `ochafik-util` package in [nativelibs4java/JNAerator
 
 I need help to add tests, since I'm not really using this project anymore (it's still used at the fringe in JNAerator).
 
+```
+  <repositories>
+    <repository>
+      <id>sonatype</id>
+      <name>Sonatype OSS Snapshots Repository</name>
+      <url>http://oss.sonatype.org/content/groups/public</url>
+    </repository>
+  </repositories>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.nativelibs4java</groupId>
+      <artifactId>jalico</artifactId>
+      <version>0.12-SNAPSHOT</version>
+    </dependency>
+  </dependencies>
+```
+
 # Former doc
 
 ## What is it ?
