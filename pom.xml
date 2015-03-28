@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.nativelibs4java</groupId>
+	<artifactId>jalico</artifactId>
+	<name>Jalico (Java Listenable Collections</name>
+	<url>http://github.com/nativelibs4java/jalico</url>
+	<version>0.12-SNAPSHOT</version>
+
+	<repositories>
+		<repository>
+			<id>sonatype</id>
+			<name>Sonatype OSS Snapshots Repository</name>
+			<url>http://oss.sonatype.org/content/groups/public</url>
+		</repository>
+	</repositories>
+
+	<scm>
+		<connection>scm:git:git@github.com:nativelibs4java/jalico.git</connection>
+		<developerConnection>scm:git:git@github.com:nativelibs4java/jalico.git</developerConnection>
+		<url>http://github.com/nativelibs4java/jalico</url>
+	</scm>
+
+	<parent>
+		<groupId>com.nativelibs4java</groupId>
+		<artifactId>nativelibs4java-parent</artifactId>
+		<version>1.9</version>
+	</parent>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+	<build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+      </plugin>
+		</plugins>
+	</build>
+</project>

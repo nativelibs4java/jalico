@@ -17,7 +17,7 @@
 
        http://jalico.googlecode.com/.
 */
-package com.ochafik.util.listenable;
+package com.nativelibs4java.jalico;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -30,10 +30,9 @@ import java.util.RandomAccess;
 import java.util.Set;
 import java.util.SortedSet;
 
-
 /**
- * Utility methods to make the most out of listenable collections.<br/>
- * Provides synchronized and read-only wrappers for listenable collections, lists, sets and maps.<br/>
+ * Utility methods to make the most out of listenable collections.<br>
+ * Provides synchronized and read-only wrappers for listenable collections, lists, sets and maps.<br>
  * Also provides two-ways automated synchronization between listenable collections (that "knows" about the differences between sets, lists and other kinds of collections).
  * @author ochafik
  *
@@ -41,14 +40,14 @@ import java.util.SortedSet;
 public class ListenableCollections {
 	
 	/**
-	 * Create a listenable list that will dynamically reflect the contents of the source listenable collection.<br/>
+	 * Create a listenable list that will dynamically reflect the contents of the source listenable collection.<br>
 	 * This is useful for instance when you want to put the contents of a set in a swing JList (then use new JList(new ListenableListModel(ListenableCollections.asList(yourSet)))). 
 	 * @param <T> type of the elements of the collection
 	 * @param source collection that is to be adapted to a listenable list
 	 * @return source if it is already a listenable list, otherwise a new listenable list that is two-ways bound to the source collection. 
 	 */
 	public static <T> ListenableList<T> asList(ListenableCollection<T> source) {
-		if (source instanceof ListenableList)
+		if (source instanceof ListenableList<?>)
 			return (ListenableList<T>)source;
 		
 		ListenableList<T> out = new DefaultListenableList<T>(new ArrayList<T>(source));
@@ -57,8 +56,8 @@ public class ListenableCollections {
 	}
 	
 	/**
-	 * Setup two-ways automated synchronization between listenable collections<br/>
-	 * Tries to deal with sets, lists and collections in the most intuitive way possible (synchronization should happen as the common sense would dictate it).<br/>
+	 * Setup two-ways automated synchronization between listenable collections<br>
+	 * Tries to deal with sets, lists and collections in the most intuitive way possible (synchronization should happen as the common sense would dictate it).<br>
 	 * It is possible to bind collections of different kinds (say, a set with a list).
  	 * @param <T> type of the elements of both collections
 	 * @param a collection to keep synchronized with b
@@ -165,39 +164,39 @@ public class ListenableCollections {
 	}
 	
 	/**
-	 * Wraps a collection in a listenable collection.<br/>
+	 * Wraps a collection in a listenable collection.<br>
 	 * The type of the listenable collection returned will depend on that of the provided collection :
 	 * <ul>
-	 * <li>wrapping a Set<T> will return a ListenableSet&lt;T&gt;, using ListenableCollections.listenableSet(Set&lt;T&gt;)</li>
-	 * <li>wrapping a List<T> will return a ListenableList&lt;T&gt;, using ListenableCollections.listenableList(List&lt;T&gt;)</li>
+	 * <li>wrapping a Set&lt;T&gt; will return a ListenableSet&lt;T&gt;, using ListenableCollections.listenableSet(Set&lt;T&gt;)</li>
+	 * <li>wrapping a List&lt;T&gt; will return a ListenableList&lt;T&gt;, using ListenableCollections.listenableList(List&lt;T&gt;)</li>
 	 * <li>wrapping a ListenableCollection&lt;T&gt; will return the same object</li>
 	 * <li>otherwise a instance of a ListenableCollection&lt;T&gt; will be returned.</li>
 	 * </ul>
-	 * @param <T>
+	 * @param <T> component type
 	 * @param collectionToWrap
 	 * @return listenable collection that uses the provided collection as storage
 	 */
 	public static final <T> ListenableCollection<T> listenableCollection(Collection<T> collectionToWrap) {
-		if (collectionToWrap instanceof ListenableCollection)
+		if (collectionToWrap instanceof ListenableCollection<?>)
 			return (ListenableCollection<T>)collectionToWrap;
 		
-		if (collectionToWrap instanceof Set) {
+		if (collectionToWrap instanceof Set<?>) {
 			return listenableSet((Set<T>)collectionToWrap);
-		} else if (collectionToWrap instanceof List) {
+		} else if (collectionToWrap instanceof List<?>) {
 			return listenableList((List<T>)collectionToWrap);
 		}
 		return new DefaultListenableCollection<T>(collectionToWrap);
 	}
 	
 	/**
-	 * Wraps a list in a listenable list.<br/>
+	 * Wraps a list in a listenable list.<br>
 	 * If is provided with a list that implements the RandomAccess interface, this method returns a listenable list that also implements the RandomAccess interface. 
-	 * @param <T>
+	 * @param <T> component type
 	 * @param listToWrap
 	 * @return listenable list that uses the provided list as storage
 	 */
 	public static final <T> ListenableList<T> listenableList(List<T> listToWrap) {
-		if (listToWrap instanceof ListenableList)
+		if (listToWrap instanceof ListenableList<?>)
 			return (ListenableList<T>)listToWrap;
 		
 		if (listToWrap instanceof RandomAccess) {
@@ -212,17 +211,17 @@ public class ListenableCollections {
 	}
 	
 	/**
-	 * Wraps a set in a listenable set.<br/>
+	 * Wraps a set in a listenable set.<br>
 	 * If is provided with a set that implements the SortedSet interface, this method returns a listenable set that also implements the SortedSet interface. 
-	 * @param <T>
+	 * @param <T> component type
 	 * @param setToWrap
 	 * @return listenable set that uses the provided set as storage
 	 */
 	public static final <T> ListenableSet<T> listenableSet(Set<T> setToWrap) {
-		if (setToWrap instanceof ListenableSet)
+		if (setToWrap instanceof ListenableSet<?>)
 			return (ListenableSet<T>)setToWrap;
 		
-		if (setToWrap instanceof SortedSet) {
+		if (setToWrap instanceof SortedSet<?>) {
 			return new DefaultListenableSortedSet<T>((SortedSet<T>)setToWrap);
 		}
 		return new DefaultListenableSet<T>(setToWrap);
@@ -263,19 +262,19 @@ public class ListenableCollections {
 	 * Operations are multithreaded depending on threadsCount : 
 	 * <ul>
 	 * <li>if threadsCount == 0 : all operations happen in current thread
-	 * </li><li>if threadCount > 0, mapping is done with threadCount threads
-	 * </li><li>if threadCount < 0, mapping is done with -threadsCount * Runtime.getRuntime().availableProcessors() threads. For instance, on a single-processor, dual-core computer (with all cores available to Java), setting threadsCount to -2 will use 2 * 2 = 4 threads.
+	 * </li><li>if threadCount &gt; 0, mapping is done with threadCount threads
+	 * </li><li>if threadCount &lt; 0, mapping is done with -threadsCount * Runtime.getRuntime().availableProcessors() threads. For instance, on a single-processor, dual-core computer (with all cores available to Java), setting threadsCount to -2 will use 2 * 2 = 4 threads.
 	 * </li></ul>
-	 * In the case of multithreaded mapping, map returns immediately. <br/>
-	 * One can listen to the listenable list of result values in MapResult.getValues(), and register ActionListener instances in MapResult.getThreads().<br/> 
-	 * One can also call MapResult.getThreads().join() to wait for all running threads to finish (blocking call).<br/>
+	 * In the case of multithreaded mapping, map returns immediately. <br>
+	 * One can listen to the listenable list of result values in MapResult.getValues(), and register ActionListener instances in MapResult.getThreads().<br> 
+	 * One can also call MapResult.getThreads().join() to wait for all running threads to finish (blocking call).<br>
 	 * 
 	 * @param <U> input elements type
 	 * @param <V> output elements type
 	 * @param input input values that are to be transformed by the adapter
 	 * @param mapper converter from the input type to the output type
-	 * @param threadsCount 0 for no multithreading, X > 0 for X threads, -X for X threads per-core 
-	 * @return
+	 * @param threadsCount 0 for no multithreading, X &gt; 0 for X threads, -X for X threads per-core 
+	 * @return MapResult object
 	 */
 	public static <U, V> MapResult<U, V> map(Collection<U> input, final Adapter<U, V> mapper, int threadsCount) {
 		if (threadsCount < 0)

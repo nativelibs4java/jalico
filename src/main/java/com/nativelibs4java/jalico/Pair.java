@@ -1,4 +1,4 @@
-package com.ochafik.util.listenable;
+package com.nativelibs4java.jalico;
 
 import java.util.Map;
 
@@ -13,6 +13,9 @@ public class Pair<U, V> implements Comparable<Pair<U, V>>, Map.Entry<U, V> {
 	
 	public Pair() {}
 
+    public static <U, V> Pair<U, V> create(U u, V v) {
+        return new Pair<U, V>(u, v);
+    }
 	public U getFirst() {
 		return first;
 	}
@@ -83,7 +86,7 @@ public class Pair<U, V> implements Comparable<Pair<U, V>>, Map.Entry<U, V> {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		final Pair other = (Pair) obj;
+		final Pair<?, ?> other = (Pair<?, ?>) obj;
 		if (first == null) {
 			if (other.first != null)
 				return false;
