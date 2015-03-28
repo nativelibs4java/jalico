@@ -1,12 +1,14 @@
-[![Build Status](https://travis-ci.org/nativelibs4java/jalico.svg?branch=master)](https://travis-ci.org/nativelibs4java/jalico)
-
-# jalico
+# Jalico [![Build Status](https://travis-ci.org/nativelibs4java/jalico.svg?branch=master)](https://travis-ci.org/nativelibs4java/jalico)
 
 Listenable Collections for Java!
 
 This was freshly-split from `ochafik-util` package in [nativelibs4java/JNAerator](http://github.com/nativelibs4java/JNAerator), and merged with code.google.com/p/jalico project from 2008.
 
-I need help to add tests ([here's a sample](./src/test/java/com/nativelibs4java/jalico/ListenableCollectionsTest.java)), since I'm not really using this project anymore (it's still used at the fringe in JNAerator).
+TODO
+* I need help to add tests ([here's a sample](./src/test/java/com/nativelibs4java/jalico/ListenableCollectionsTest.java)), since I'm not really using this project anymore (it's still used at the fringe in JNAerator).
+* Needs doc here
+* Needs to add test coverage
+* Needs a release when test coverage is good (Note: most of current code is released in the [ochafik-util 0.12](http://search.maven.org/#artifactdetails%7Ccom.nativelibs4java%7Cochafik-util%7C0.12%7Cjar) artefact, under package `com.ochafik.util.listenable`.
 
 ```
   <repositories>
